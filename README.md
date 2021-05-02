@@ -1,4 +1,4 @@
-# Simple project usad to practice Java.
+# Simple project used to practice Java.
 Will contain the implementation of basic data structures
 - [ ] Linked list
 - [ ] Doubly linked list
