@@ -20,6 +20,8 @@ public class List {
 	 * 
 	 * @param index: index used to get element.
 	 * 
+	 * @return Integer: value from index received.
+	 * 
 	 * @throws IndexOutOfBounds when received index is bigger than elements size.
 	 * @throws IndexOutOfBounds when list doesn't have any element.
 	 */
@@ -32,6 +34,22 @@ public class List {
 	
 	public Integer size() {
 		return size;
+	}
+	
+	/*
+	 * Check if any element from list matches with received value
+	 * 
+	 * @param value: value used to iterate on list and check if it exists
+	 * 
+	 * @return true if element is present on list or false case it doesn't.
+	 * 
+	 */
+	public boolean contains(Integer value) {
+		for(int index = 0; index < this.size; index++) {
+			if (this.elements[index].equals(value))
+				return true;
+		}
+		return false;
 	}
 	
 	/*

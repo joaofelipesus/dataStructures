@@ -1,6 +1,9 @@
 package br.com.lopes.dataStructures.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 import br.com.lopes.dataStructures.list.List;
@@ -54,7 +57,7 @@ public class ListTest {
 	public void getElementFromAListWithElementsButPassingAIndexInvalid() {
 		list.add(1);
 		list.add(2);
-		list.get(51);
+		list.get(42);
 	}
 	
 	@Test(expected = IndexOutOfBoundsException.class)
@@ -62,29 +65,30 @@ public class ListTest {
 		list.add(1);
 		list.get(-1);
 	}
+	
+	@Test
+	public void returnFalseWhenElementDoesntMachWithAnyElement() {
+		list.add(2);
+		assertFalse(list.contains(42));
+	}
+	
+	@Test
+	public void returnsFalseWhenSearchigAnEmptyList() {
+		assertFalse(list.contains(42));
+	}
+	
+	@Test
+	public void returnsTrueWhenElementReceivedDoExistOnArray() {
+		list.add(42);
+		assertTrue(list.contains(42));
+	}
+	
+	@Test
+	public void returnsTruewhenElementExistInAListWithManyElements() {
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		assertTrue(list.contains(3));
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
