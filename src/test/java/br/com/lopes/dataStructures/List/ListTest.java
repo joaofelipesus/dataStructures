@@ -1,5 +1,6 @@
 package br.com.lopes.dataStructures.List;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -23,7 +24,7 @@ public class ListTest {
 	}
 	
 	@Test
-	public void addElementToAListWhichAlreadyHavOneElement() {
+	public void addElementToAListWhichAlreadyHaveOneElement() {
 		list.add(1);
 		list.add(2);
 		assertEquals(list.size(), Integer.valueOf(2));
@@ -67,7 +68,7 @@ public class ListTest {
 	}
 	
 	@Test
-	public void returnFalseWhenElementDoesntMachWithAnyElement() {
+	public void returnFalseWhenElementDoesntMatchWithAnyElement() {
 		list.add(2);
 		assertFalse(list.contains(42));
 	}
@@ -90,5 +91,44 @@ public class ListTest {
 		list.add(3);
 		list.add(4);
 		assertTrue(list.contains(3));
+	}
+	
+	@Test
+	public void returnsAnEmptyArrayWhenTryToSortAnEmptyList() {
+		Integer[] sortedValues = new Integer[0];
+		assertArrayEquals(list.sort(), sortedValues);
+	}
+	
+	@Test
+	public void whenListHasOnlyOneValues() {
+		list.add(1);
+		Integer[] sortedValues = new Integer[] { 1 };
+		assertArrayEquals(list.sort(), sortedValues);
+	}
+	
+	@Test
+	public void whenListHasOddTwoValues() {
+		list.add(3);
+		list.add(1);
+		Integer[] sortedValues = new Integer[] { 1, 3 };
+		assertArrayEquals(list.sort(), sortedValues);
+	}
+	
+	@Test
+	public void whenAllValuesAreEquals() {
+		list.add(1);
+		list.add(1);
+		list.add(1);
+		Integer[] sortedValues = new Integer[] { 1, 1, 1 };
+		assertArrayEquals(list.sort(), sortedValues);
+	}
+	
+	@Test
+	public void whenListHasEvenValues() {
+		list.add(5);
+		list.add(1);
+		list.add(3);
+		Integer[] sortedValues = new Integer[] { 1, 3, 5 };
+		assertArrayEquals(list.sort(), sortedValues);
 	}
 }

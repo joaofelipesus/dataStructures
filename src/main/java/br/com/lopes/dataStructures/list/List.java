@@ -1,5 +1,9 @@
 package br.com.lopes.dataStructures.list;
 
+import java.util.Arrays;
+
+import utils.BubbleSort;
+
 public class List {
 	private Integer[] elements = new Integer[0];
 	private Integer size = 0;
@@ -53,8 +57,19 @@ public class List {
 	}
 	
 	/*
+	 * Sort elements
+	 * 
+	 * @return an array with elements sorted
+	 * 
+	 */
+	public Integer[] sort() {
+		return new BubbleSort(this.elements).sort();
+	}
+	
+	/*
 	 * Increase current elements array, and set this.elements an array
 	 * with an extra empty position.
+	 * 
 	 */
 	private void increateArraySize() {
 		Integer[] increasedSizeArray = new Integer[this.size + 1];
