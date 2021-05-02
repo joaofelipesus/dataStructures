@@ -11,9 +11,16 @@ public class List {
 	 * */
 	public void add(Integer value) {
 		
+		Integer[] newElements = new Integer[this.size + 1];
+		for(int index = 0; index < this.size; index++) {
+			newElements[index] = this.elements[index];
+		}
+		newElements[size] = value;
+		this.elements = newElements;
+		this.size += 1;
 	}
 	
-	public Integer getSize() {
+	public Integer size() {
 		return size;
 	}
 
