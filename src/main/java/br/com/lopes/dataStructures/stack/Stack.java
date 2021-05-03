@@ -4,8 +4,12 @@ public class Stack {
 
 	/*
 	 * Adds a new element to the top of the stack.
+	 * 
+	 * @param value places on top on the stack
 	 */
-	public void push() {}
+	public void push(Integer value) {
+		
+	}
 	
 	
 	/*
