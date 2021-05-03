@@ -1,7 +1,5 @@
 package br.com.lopes.dataStructures.list;
 
-import java.util.Arrays;
-
 import utils.BubbleSort;
 
 public class List {
@@ -67,6 +65,30 @@ public class List {
 	}
 	
 	/*
+	 * Remove element from the list.
+	 * 
+	 * @param index: position which will be removed
+	 * 
+	 * @throws IndexOutOfBoundsException when received index is bigger than list
+	 * @throws IndexOutOfBoundsException when received index is negative
+	 * 
+	 */
+	public void remove(Integer index) {
+		isIndexValid(index);
+		this.elements[index] = null;
+		Integer[] newArray = new Integer[this.size - 1];
+		Integer newIndex = 0;
+		for(Integer value : this.elements) {
+			if(value != null) {
+				newArray[newIndex] = value;
+				newIndex += 1;
+			}
+		}
+		this.elements = newArray;
+		this.size -= 1;
+	}
+	
+	/*
 	 * Increase current elements array, and set this.elements an array
 	 * with an extra empty position.
 	 * 
@@ -106,5 +128,9 @@ public class List {
 	private void listHasElements() {
 		if (this.size == 0)
 			throw new IndexOutOfBoundsException("List doesn't have elements.");
+	}
+	
+	public Integer[] getElements() {
+		return elements;
 	}
 }
