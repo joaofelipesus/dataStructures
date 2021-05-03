@@ -1,7 +1,5 @@
 package br.com.lopes.dataStructures.list;
 
-import java.util.Arrays;
-
 import utils.BubbleSort;
 
 public class List {
@@ -67,6 +65,41 @@ public class List {
 	}
 	
 	/*
+	 * Remove element from the list.
+	 * 
+	 * @param index: position which will be removed
+	 * 
+	 * @throws IndexOutOfBoundsException when received index is bigger than list
+	 * @throws IndexOutOfBoundsException when received index is negative
+	 * 
+	 */
+	public void remove(Integer index) {
+		isIndexValid(index);
+		decreaseSize();
+		this.elements[index] = null;
+		this.elements = removeNilElements(this.elements);		
+	}
+	
+	/*
+	 * Remove null elements from a array and return a smaller array
+	 * 
+	 * @param elements: array of Integer values with at least one null value.
+	 * 
+	 * @return an array with all values which isn't null. 
+	 */
+	private Integer[] removeNilElements(Integer[] elements) {
+		Integer[] array = new Integer[this.size];
+		Integer index = 0;
+		for(Integer value : elements) {
+			if(value != null) {
+				array[index] = value;
+				index += 1;
+			}
+		}
+		return array;
+	}
+	
+	/*
 	 * Increase current elements array, and set this.elements an array
 	 * with an extra empty position.
 	 * 
@@ -79,8 +112,15 @@ public class List {
 		this.elements = increasedSizeArray;
 	}
 	
+	/*
+	 * Increase size attribute
+	 */
 	private void increaseSize() {
 		this.size += 1;
+	}
+	
+	private void decreaseSize() {
+		this.size -= 1;
 	}
 	
 	/*
@@ -106,5 +146,9 @@ public class List {
 	private void listHasElements() {
 		if (this.size == 0)
 			throw new IndexOutOfBoundsException("List doesn't have elements.");
+	}
+	
+	public Integer[] getElements() {
+		return elements;
 	}
 }

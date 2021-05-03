@@ -131,4 +131,52 @@ public class ListTest {
 		Integer[] sortedValues = new Integer[] { 1, 3, 5 };
 		assertArrayEquals(list.sort(), sortedValues);
 	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void removeElementFromEmptyList() {
+		list.remove(1);
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void removeElementUsingAnNegativeIndex() {
+		list.remove(-1);
+	}
+	
+	@Test
+	public void removeElementFromAListWithOnliOneElement() {
+		list.add(42);
+		list.remove(0);
+		assertEquals(list.size(), Integer.valueOf(0));
+	}
+	
+	@Test
+	public void removeElemntFromAListWithManyElements() {
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.remove(1);
+		assertEquals(list.size(), Integer.valueOf(2));
+		Integer[] expectedValues = new Integer[] { 1, 3 };
+		assertArrayEquals(list.getElements(), expectedValues);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
