@@ -75,17 +75,28 @@ public class List {
 	 */
 	public void remove(Integer index) {
 		isIndexValid(index);
+		decreaseSize();
 		this.elements[index] = null;
-		Integer[] newArray = new Integer[this.size - 1];
-		Integer newIndex = 0;
-		for(Integer value : this.elements) {
+		this.elements = removeNilElements(this.elements);		
+	}
+	
+	/*
+	 * Remove null elements from a array and return a smaller array
+	 * 
+	 * @param elements: array of Integer values with at least one null value.
+	 * 
+	 * @return an array with all values which isn't null. 
+	 */
+	private Integer[] removeNilElements(Integer[] elements) {
+		Integer[] array = new Integer[this.size];
+		Integer index = 0;
+		for(Integer value : elements) {
 			if(value != null) {
-				newArray[newIndex] = value;
-				newIndex += 1;
+				array[index] = value;
+				index += 1;
 			}
 		}
-		this.elements = newArray;
-		this.size -= 1;
+		return array;
 	}
 	
 	/*
@@ -101,8 +112,15 @@ public class List {
 		this.elements = increasedSizeArray;
 	}
 	
+	/*
+	 * Increase size attribute
+	 */
 	private void increaseSize() {
 		this.size += 1;
+	}
+	
+	private void decreaseSize() {
+		this.size -= 1;
 	}
 	
 	/*
