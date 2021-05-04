@@ -1,7 +1,7 @@
 # Simple project used to practice Java.
 Will contain the implementation of basic data structures
 - [X] List
-- [ ] Stack
+- [X] Stack
 - [ ] Set
 - [ ] Linked list
 - [ ] Doubly linked list

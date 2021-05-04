@@ -36,7 +36,7 @@ public class StackTest {
 	public void popElementFromAnEmptyStack() {
 		stack.pop();
 	}
-	
+//	
 	@Test
 	public void popElementFromAListWithOnlyOneElement() {
 		stack.push(1);
@@ -46,7 +46,7 @@ public class StackTest {
 	}
 	
 	@Test
-	public void popELementFromAStackWithManyElements() {
+	public void popElementFromAStackWithManyElements() {
 		stack.push(1);
 		stack.push(2);
 		stack.push(3);
@@ -61,28 +61,3 @@ public class StackTest {
 		stack.getTop();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
