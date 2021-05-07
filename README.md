@@ -13,7 +13,8 @@ Data structure more flexible than an array, adds elements always as last element
 - add(Integer) add an new element on the end of the list.
 - get(Integer) return the element of received index.
 - contains(Integer) check if list contains received element.
-- sort() sort list elements  
+- sort() sort list elements.
+- remove(Integer) remove element of the received index.
 
 
 ## Stack
@@ -32,3 +33,4 @@ Data structure which keeps elements sorted, and don't permit duplicity.
 [ ] size() return number of elements.
 [ ] remove(Integer) remove element from received index.
 [ ] removeElement(Integer) remove element received.   
+

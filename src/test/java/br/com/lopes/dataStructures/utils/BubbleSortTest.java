@@ -4,7 +4,7 @@ import static org.junit.Assert.assertArrayEquals;
 
 import org.junit.Test;
 
-import utils.BubbleSort;
+import br.com.lopes.dataStrctures.utils.BubbleSort;
 
 public class BubbleSortTest {
 	private Integer[] values;
