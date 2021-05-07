@@ -7,14 +7,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
-import br.com.lopes.dataStructures.list.List;
+import br.com.lopes.dataStructures.list.ArrayList;
 
-public class ListTest {
-	private List list;
+public class ArrayListTest {
+	private ArrayList list;
 	
 	@Before
 	public void before() {
-		this.list = new List();
+		this.list = new ArrayList();
 	}
 	
 	@Test
