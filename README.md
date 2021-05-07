@@ -8,13 +8,15 @@ Will contain the implementation of basic data structures
 - [ ] TreeS
 
 
-## List
+## ArrayList
 Data structure more flexible than an array, adds elements always as last element.
 - add(Integer) add an new element on the end of the list.
 - get(Integer) return the element of received index.
 - contains(Integer) check if list contains received element.
 - sort() sort list elements.
 - remove(Integer) remove element of the received index.
+[ ] removeFirst(Integer value) remove first occurrence of received value.
+[ ] removeAll(Integer value) remove all occurrences of received value.
 
 
 ## Stack
