@@ -1,4 +1,4 @@
-package utils;
+package br.com.lopes.dataStrctures.utils;
 
 
 public class BubbleSort {

@@ -1,6 +1,6 @@
 package br.com.lopes.dataStructures.list;
 
-import utils.BubbleSort;
+import br.com.lopes.dataStrctures.utils.BubbleSort;
 
 public class List {
 	private Integer[] elements = new Integer[0];
