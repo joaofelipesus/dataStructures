@@ -1,6 +1,7 @@
 package br.com.lopes.dataStructures.list;
 
 import br.com.lopes.dataStrctures.utils.BubbleSort;
+import br.com.lopes.dataStructures.services.ElementFinderService;
 
 public class ArrayList {
 	private Integer[] elements = new Integer[0];
@@ -47,11 +48,7 @@ public class ArrayList {
 	 * 
 	 */
 	public boolean contains(Integer value) {
-		for(int index = 0; index < this.size; index++) {
-			if (this.elements[index].equals(value))
-				return true;
-		}
-		return false;
+		return new ElementFinderService(elements, value).call();
 	}
 	
 	/*
