@@ -28,11 +28,11 @@ Data structure which stack and unstack values, only iterating with top element.
 
 ## Set
 Data structure which keeps elements sorted, and don't permit duplicity.
-[ ] add(Integer) add new element
-[ ] get(Integer) get element from received index.
-[ ] getElement(Integer) get element received.
-[ ] contains(Integer) check if received element exist.
-[ ] size() return number of elements.
-[ ] remove(Integer) remove element from received index.
-[ ] removeElement(Integer) remove element received.   
+- add(Integer) add new element
+- get(Integer) get element from received index.
+- getElement(Integer) get element received.
+- contains(Integer) check if received element exist.
+- size() return number of elements.
+- remove(Integer) remove element from received index.
+- removeElement(Integer) remove element received.   
 
