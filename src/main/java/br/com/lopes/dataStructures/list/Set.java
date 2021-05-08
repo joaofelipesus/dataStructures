@@ -9,8 +9,7 @@ public class Set implements List {
 	
 	@Override
 	public void add(Integer value) {
-		boolean hasElement = new ElementFinderService(elements, value).call();
-		if (hasElement == false) {
+		if (!contains(value)) {
 			this.elements = new IncreaseArraySizeService(elements).call();
 			this.elements[this.size() - 1] = value;
 			this.elements = new BubbleSort(elements).sort();
@@ -34,8 +33,7 @@ public class Set implements List {
 
 	@Override
 	public boolean contains(Integer value) {
-		// TODO Auto-generated method stub
-		return false;
+		return new ElementFinderService(elements, value).call();
 	}
 
 	@Override
