@@ -8,7 +8,7 @@ public class Set extends List {
 	@Override
 	public void add(Integer value) {
 		if (!contains(value)) {
-			this.elements = Array.increase(elements);
+			this.elements = Array.increaseSize(elements);
 			this.elements[this.size() - 1] = value;
 			this.elements = new BubbleSort(elements).sort();
 		}
