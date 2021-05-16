@@ -34,4 +34,53 @@ public class SetTest {
 		set.add(1);
 		assertEquals(set.size(), Integer.valueOf(1));
 	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void raises_exception_when_get_element_of_an_empty_set() {
+		set.get(0);
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void raises_exception_when_get_a_value_of_a_invalid_index() {
+		set.add(1);
+		set.get(42);
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void raises_exception_when_receive_an_negative_index() {
+		set.add(1);
+		set.add(2);
+		set.add(3);
+		set.get(-1);
+	}
+	
+	@Test
+	public void get_value_from_a_valid_index() {
+		set.add(1);
+		set.add(2);
+		set.add(3);
+		Integer value = set.get(1);
+		assertEquals(value, Integer.valueOf(2));
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

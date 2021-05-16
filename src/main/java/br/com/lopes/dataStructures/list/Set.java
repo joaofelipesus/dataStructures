@@ -3,6 +3,7 @@ package br.com.lopes.dataStructures.list;
 import br.com.lopes.dataStrctures.utils.BubbleSort;
 import br.com.lopes.dataStructures.services.ElementFinderService;
 import br.com.lopes.dataStructures.services.IncreaseArraySizeService;
+import br.com.lopes.dataStructures.services.IndexValidatorService;
 
 public class Set implements List {
 	private Integer[] elements = new Integer[0];
@@ -18,14 +19,10 @@ public class Set implements List {
 
 	@Override
 	public Integer get(Integer index) {
-		// TODO Auto-generated method stub
-		return null;
+		new IndexValidatorService(elements, index);
+		return elements[index];
 	}
 
-	/*
-	 * Return elements number.
-	 * 
-	 */
 	@Override
 	public Integer size() {
 		return elements.length;

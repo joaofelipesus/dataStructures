@@ -2,6 +2,7 @@ package br.com.lopes.dataStructures.list;
 
 import br.com.lopes.dataStrctures.utils.BubbleSort;
 import br.com.lopes.dataStructures.services.ElementFinderService;
+import br.com.lopes.dataStructures.services.IndexValidatorService;
 
 public class ArrayList {
 	private Integer[] elements = new Integer[0];
@@ -121,18 +122,15 @@ public class ArrayList {
 	}
 	
 	/*
-	 * Check if received index exist on elements array.
+	 * Check if received index exist on elements array, if it doesn't raise an exception.
 	 * 
 	 * @param index: index which supposedly exists on elements array.
 	 * 
 	 * @throws IndexOutOfBounds when received index is bigger than elements size.
+	 * @throws IndexOutOfBounds when received index is negative.
 	 */
 	private void isIndexValid(Integer index) {
-		if (index < 0)
-			throw new IndexOutOfBoundsException("Negative value received.");
-		
-		if (index > this.size)
-			throw new IndexOutOfBoundsException("Index bigger than current elements size.");
+		new IndexValidatorService(elements, index).call();
 	}
 	
 	/*
