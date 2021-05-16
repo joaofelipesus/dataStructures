@@ -2,6 +2,7 @@ package br.com.lopes.dataStructures.list;
 
 import br.com.lopes.dataStrctures.utils.Array;
 import br.com.lopes.dataStrctures.utils.BubbleSort;
+import br.com.lopes.dataStructures.services.IndexValidatorService;
 
 public class Set extends List {
 	
@@ -16,8 +17,9 @@ public class Set extends List {
 
 	@Override
 	public void remove(Integer index) {
-		// TODO Auto-generated method stub
-		
+		new IndexValidatorService(elements, index);
+		elements[index] = null;
+		elements = Array.decreaseSize(elements);
 	}
 
 	@Override
