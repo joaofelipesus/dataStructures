@@ -1,14 +1,14 @@
 package br.com.lopes.dataStructures.list;
 
+import br.com.lopes.dataStrctures.utils.Array;
 import br.com.lopes.dataStrctures.utils.BubbleSort;
-import br.com.lopes.dataStructures.services.IncreaseArraySizeService;
 
 public class Set extends List {
 	
 	@Override
 	public void add(Integer value) {
 		if (!contains(value)) {
-			this.elements = new IncreaseArraySizeService(elements).call();
+			this.elements = Array.increase(elements);
 			this.elements[this.size() - 1] = value;
 			this.elements = new BubbleSort(elements).sort();
 		}

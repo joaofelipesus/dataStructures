@@ -6,7 +6,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import br.com.lopes.dataStrctures.utils.Array;
-import br.com.lopes.dataStructures.services.IncreaseArraySizeService;
 
 public class ArrayTest {
 	@Test
