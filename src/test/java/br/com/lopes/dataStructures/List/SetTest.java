@@ -62,6 +62,28 @@ public class SetTest {
 		Integer value = set.get(1);
 		assertEquals(value, Integer.valueOf(2));
 	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void remove_value_from_a_empty_set() {
+		set.remove(1);
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void remove_value_using_a_negative_index() {
+		set.add(1);
+		set.remove(-42);
+	}
+	
+	@Test
+	public void remove_element_from_a_set_with_elements() {
+		set.add(1);
+		set.add(2);
+		set.add(3);
+		set.remove(1);
+		assertEquals(set.size(), Integer.valueOf(2));
+		assertEquals(set.get(0), Integer.valueOf(1));
+		assertEquals(set.get(1), Integer.valueOf(3));
+	}
 }
 
 

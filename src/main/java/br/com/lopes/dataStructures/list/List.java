@@ -1,75 +1,29 @@
 package br.com.lopes.dataStructures.list;
 
-public interface List {
+import br.com.lopes.dataStructures.interfaces.Listable;
+import br.com.lopes.dataStructures.services.ElementFinderService;
+import br.com.lopes.dataStructures.services.IndexValidatorService;
 
-	/*
-	 * Adds an element to data structure.
-	 * 
-	 * @param value -> value which will be added on structure.
-	 * 
-	 */
-	public void add(Integer value);
-
-	/*
-	 * Get element from received index.
-	 * 
-	 * @param index -> index of the value which will be returned.
-	 * 
-	 * @throws IndexOutOfBounds when received index is bigger than elements size.
-	 * 
-	 * @throws IndexOutOfBounds when list doesn't have any element.
-	 * 
-	 */
-	public Integer get(Integer index);
-
-	/*
-	 * Return total of elements.
-	 * 
-	 * @return Integer number of elements.
-	 * 
-	 */
-	public Integer size();
-
-	/*
-	 * Verify if received value is present.
-	 * 
-	 * @param value -> value which will be checked if exists or not on data
-	 * structure.
-	 * 
-	 * @return boolean -> true if value exist and false if doesn't
-	 * 
-	 */
-	public boolean contains(Integer value);
-
-	/*
-	 * Remove element of received position.
-	 * 
-	 * @param index -> index of the element which will be removed.
-	 * 
-	 * @throws IndexOutOfBounds when received index is bigger than elements size.
-	 * 
-	 * @throws IndexOutOfBounds when list doesn't have any element.
-	 * 
-	 */
-	public void remove(Integer index);
-
-	/*
-	 * Return first element.
-	 * 
-	 * @return Integer with first element value.
-	 * 
-	 * @throws IndexOutOfBounds when doesn't have any element.
-	 * 
-	 */
-	public Integer first();
-
-	/*
-	 * Return last element.
-	 * 
-	 * @return Integer with last element value.
-	 * 
-	 * @throws IndexOutOfBounds when doesn't have any element.
-	 * 
-	 */
-	public Integer last();
+public abstract class List implements Listable {
+	protected Integer[] elements = new Integer[0];
+	
+	protected void validateIndex(Integer index) {
+		new IndexValidatorService(elements, index);
+	}
+	
+	@Override
+	public boolean contains(Integer value) {
+		return new ElementFinderService(elements, value).call();
+	}
+	
+	@Override
+	public Integer size() {
+		return elements.length;
+	}
+	
+	@Override
+	public Integer get(Integer index) {
+		validateIndex(index);
+		return elements[index];
+	}
 }

@@ -1,12 +1,9 @@
 package br.com.lopes.dataStructures.list;
 
 import br.com.lopes.dataStrctures.utils.BubbleSort;
-import br.com.lopes.dataStructures.services.ElementFinderService;
 import br.com.lopes.dataStructures.services.IncreaseArraySizeService;
-import br.com.lopes.dataStructures.services.IndexValidatorService;
 
-public class Set implements List {
-	private Integer[] elements = new Integer[0];
+public class Set extends List {
 	
 	@Override
 	public void add(Integer value) {
@@ -15,22 +12,6 @@ public class Set implements List {
 			this.elements[this.size() - 1] = value;
 			this.elements = new BubbleSort(elements).sort();
 		}
-	}
-
-	@Override
-	public Integer get(Integer index) {
-		new IndexValidatorService(elements, index);
-		return elements[index];
-	}
-
-	@Override
-	public Integer size() {
-		return elements.length;
-	}
-
-	@Override
-	public boolean contains(Integer value) {
-		return new ElementFinderService(elements, value).call();
 	}
 
 	@Override
