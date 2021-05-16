@@ -26,7 +26,7 @@ public abstract class List implements Listable {
 	
 	@Override
 	public Integer get(Integer index) {
-		validateIndex(index);
+		isIndexValid(index);
 		return elements[index];
 	}
 	
@@ -46,8 +46,16 @@ public abstract class List implements Listable {
 		else
 			return elements[index];
 	}
-	
-	protected void validateIndex(Integer index) {
-		new IndexValidatorService(elements, index);
+		
+	/*
+	 * Check if received index exist on elements array, if it doesn't raise an exception.
+	 * 
+	 * @param index: index which supposedly exists on elements array.
+	 * 
+	 * @throws IndexOutOfBounds when received index is bigger than elements size.
+	 * @throws IndexOutOfBounds when received index is negative.
+	 */
+	protected void isIndexValid(Integer index) {
+		new IndexValidatorService(elements, index).call();
 	}
 }
