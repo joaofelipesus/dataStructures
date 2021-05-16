@@ -9,8 +9,7 @@ public class Set extends List {
 	@Override
 	public void add(Integer value) {
 		if (!contains(value)) {
-			this.elements = Array.increaseSize(elements);
-			this.elements[this.size() - 1] = value;
+			super.add(value);
 			this.elements = new BubbleSort(elements).sort();
 		}
 	}
@@ -21,17 +20,4 @@ public class Set extends List {
 		elements[index] = null;
 		elements = Array.decreaseSize(elements);
 	}
-
-	@Override
-	public Integer first() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Integer last() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
